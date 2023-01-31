@@ -19,6 +19,7 @@ function Invoke-AsBuiltReport.Microsoft.Azure {
     param (
         [String[]] $Target,
         [PSCredential] $Credential,
+	[Token] $Token,
         [Switch] $MFA
     )
 
@@ -38,7 +39,8 @@ function Invoke-AsBuiltReport.Microsoft.Azure {
             if ($MFA) {
                 $AzAccount = Connect-AzAccount -TenantId $TenantId -ErrorAction Stop
             } else {
-                $AzAccount = Connect-AzAccount -Credential $Credential -TenantId $TenantId -ErrorAction Stop
+                $AzAccount = Connect-AzAccount -Token $Token -TenantId $TenantId -ErrorAction Stop
+		#$AzAccount = Connect-AzAccount -Credential $Credential -TenantId $TenantId -ErrorAction Stop
             }
         } Catch {
             Write-Error $_
