@@ -46,7 +46,7 @@ function Invoke-AsBuiltReport.Microsoft.Azure {
         }
 	
 	#>
- $AzAccount = Connect-AzAccount -TenantId $TenantId -Token $Token
+ #$AzAccount = Connect-AzAccount -TenantId $TenantId -Token $Token
         if ($AzAccount) {
             $AzTenant = Get-AzTenant -TenantId $TenantId
             $AzLocations = Get-AzLocation
