@@ -19,8 +19,7 @@ function Invoke-AsBuiltReport.Microsoft.Azure {
     param (
         [String[]] $Target,
         [PSCredential] $Credential,
-	[Token] $Token,
-        [Switch] $MFA
+	[Switch] $MFA
     )
 
     # Import Report Configuration
