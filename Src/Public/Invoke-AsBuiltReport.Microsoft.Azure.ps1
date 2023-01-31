@@ -47,7 +47,7 @@ function Invoke-AsBuiltReport.Microsoft.Azure {
 	
 	#>
  #$AzAccount = Connect-AzAccount -TenantId $TenantId -Token $Token
-        if ($AzAccount) {
+  #      if ($AzAccount) {
             $AzTenant = Get-AzTenant -TenantId $TenantId
             $AzLocations = Get-AzLocation
             $AzLocationLookup = @{ }
@@ -96,6 +96,6 @@ function Invoke-AsBuiltReport.Microsoft.Azure {
             }
             Disconnect-AzAccount $AzAccount
         }
-	}
+	#}
 	#endregion foreach loop
 #>
