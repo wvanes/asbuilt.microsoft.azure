@@ -32,7 +32,7 @@ function Invoke-AsBuiltReport.Microsoft.Azure {
     $TextInfo = (Get-Culture).TextInfo
 
     #region foreach loop
-    foreach ($TenantId in $Target) {
+ <#   foreach ($TenantId in $Target) {
         Try {
             Write-PScriboMessage "Connecting to Azure Tenant ID '$TenantId'."
             if ($MFA) {
@@ -44,7 +44,9 @@ function Invoke-AsBuiltReport.Microsoft.Azure {
         } Catch {
             Write-Error $_
         }
-
+	
+	#>
+ $AzAccount = Connect-AzAccount -TenantId $TenantId -Token $Token
         if ($AzAccount) {
             $AzTenant = Get-AzTenant -TenantId $TenantId
             $AzLocations = Get-AzLocation
@@ -96,4 +98,4 @@ function Invoke-AsBuiltReport.Microsoft.Azure {
         }
 	}
 	#endregion foreach loop
-}
+#>
